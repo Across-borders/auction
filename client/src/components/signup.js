@@ -10,9 +10,7 @@ class SignUp extends React.Component {
             email: "",
             password: ""
         }
-        this.nameChange = this.nameChange.bind(this);
-        this.passwordChange = this.passwordChange.bind(this);
-        this.emailChange = this.emailChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -32,23 +30,21 @@ class SignUp extends React.Component {
 
     }
 
-    nameChange(event) {
+    handleChange(event) {
         event.preventDefault();
+        if (event.target.id === "password") {
+            this.setState({ password: event.target.value });
+            console.log(this.state);
+        }
+        if (event.target.id === "name") {
+            this.setState({ name: event.target.value });
+            console.log(this.state);
+        }
+        if (event.target.id === "email") {
+            this.setState({ email: event.target.value });
+            console.log(this.state);
+        }
 
-        this.setState({ name: event.target.value });
-        console.log(this.state);
-    }
-
-    emailChange(event) {
-        event.preventDefault();
-        this.setState({ email: event.target.value });
-        console.log(this.state);
-    }
-
-    passwordChange(event) {
-        event.preventDefault();
-        this.setState({ password: event.target.value });
-        console.log(this.state);
     }
 
     render() {
@@ -57,12 +53,12 @@ class SignUp extends React.Component {
             < Form onSubmit={this.handleSubmit}>
                 <Form.Group controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control name="name" value={this.state.value} onChange={this.nameChange} type="text" placeholder="Enter name" />
+                    <Form.Control name="name" value={this.state.value} onChange={this.handleChange} type="text" placeholder="Enter name" />
                 </Form.Group>
 
                 <Form.Group controlId="email">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control name="email" value={this.state.value} onChange={this.emailChange} type="email" placeholder="Enter email" />
+                    <Form.Control name="email" value={this.state.value} onChange={this.handleChange} type="email" placeholder="Enter email" />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
     </Form.Text>
@@ -70,7 +66,7 @@ class SignUp extends React.Component {
 
                 <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control name="password" value={this.state.value} onChange={this.passwordChange} type="password" placeholder="Password" />
+                    <Form.Control name="password" value={this.state.value} onChange={this.handleChange} type="password" placeholder="Password" />
                 </Form.Group>
 
                 <Button variant="primary" type="submit">
