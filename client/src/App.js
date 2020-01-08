@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from "./components/about";
 import Users from "./components/users";
+import Product from "./components/Product/Product";
+import MiniaturProduct from "./components/Product/MiniaturProduct";
+
 import "./App.css";
 import SignUp from "./components/signup";
 import { Container } from 'react-bootstrap';
 import productService from "./services/productService";
 import { Layout } from "./components/layout";
+
 
 function App() {
   // const getProducts = async () => { // exemple for using axios from servesie

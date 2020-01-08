@@ -32,18 +32,11 @@ class SignUp extends React.Component {
 
     handleChange(event) {
         event.preventDefault();
-        if (event.target.id === "password") {
-            this.setState({ password: event.target.value });
-            console.log(this.state);
-        }
-        if (event.target.id === "name") {
-            this.setState({ name: event.target.value });
-            console.log(this.state);
-        }
-        if (event.target.id === "email") {
-            this.setState({ email: event.target.value });
-            console.log(this.state);
-        }
+
+        this.setState({ [event.target.name]: event.target.value });
+        console.log(this.state);
+
+
 
     }
 
