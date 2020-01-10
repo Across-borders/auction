@@ -43,6 +43,7 @@ class AddProduct extends React.Component {
 	}
 	handleSubmit(event) {
 		event.preventDefault();
+		console.log(this.state);
 
 		productService.add(this.state).then(res => {
 
@@ -102,9 +103,8 @@ class AddProduct extends React.Component {
 
 					<Form.Group controlId="formGridStartDate">
 						<Form.Label>Start Date</Form.Label>
-						//<DatePicker selected={new Date()}></DatePicker>
-						<input type='datetime-local' />
-						{/* <Form.Control name="initial_date" type="date" value={this.state.initial_date} onChange={(e) => { this.onChange(e) }} /> */}
+						{/* {/* <DatePicker selected={new Date()}></DatePicker> * /} */}
+						<Form.Control name="initial_date" type="datetime-local" value={this.state.initial_date} onChange={(e) => { this.onChange(e) }} />
 					</Form.Group>
 
 

@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
-require("./Database/Product");
+const Product = require("./Database/Product");
 
 const app = express();
 
@@ -35,6 +35,22 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+
+app.post("/api/add", (req, res) => {
+  console.log(req.body);
+  let product = new Product(req.body)
+
+  product.save((err) => {
+    if (err) { res.status(500).json({ msg: 'sorry, internal server error!!' }) }
+    else {
+      res.json({ msg: 'your data is saved!!!' })
+    }
+
+
+  })
+
+
+})
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`app running on port ${PORT}`);

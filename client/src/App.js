@@ -62,6 +62,7 @@ class App extends React.Component {
     return (
       <div >
         <Router>
+          <AddProduct></AddProduct>
           <SignUp showModal={this.state.showModalSignUp} onHide={() => { this.hundleCloseSignUp() }} changeUserName={this.changeUserName} />
           <LogIn showModal={this.state.showModalLogin} onHide={() => { this.hundleCloseLogin() }} changeUserName={this.changeUserName} />
           <Switch>
